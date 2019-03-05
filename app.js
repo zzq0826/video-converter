@@ -17,7 +17,7 @@ app.get('/convert', (req, res) => {
       console.log('An error occurred: ' + err.message);
     })
     .on('end', function() {
-      res.send('http://18.222.144.126:3001/' + fileName)
+      res.send('https://videoconverter.bermi.tv/' + fileName)
       console.log('Processing finished !');
     })
     .save(`./public/${fileName}`);
