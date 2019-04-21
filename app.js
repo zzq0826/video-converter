@@ -3,9 +3,13 @@ const app = express()
 var ffmpeg = require('fluent-ffmpeg');
 var random = require('random-name');
 var cors = require('cors');
+var exec = require("shelljs").exec;
+
+setInterval(() => {
+  exec('rm -rf ./public/*')
+}, 1000 * 60 * 60 * 24)
 
 app.use(cors());
-
 app.use(express.static('public'))
 app.get('/convert', (req, res) => {
     const fileName=`${random.first()}-${random.first()}-${random.first()}.mp4`
